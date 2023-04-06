@@ -21,6 +21,10 @@
         font-size: x-large;
         text-transform: uppercase;
     }
+
+    #erro{
+        color: red;
+    }
 </style>
 <body>
     <div class="palavras">
@@ -37,6 +41,8 @@
     <input type="text" name="" id="letra" value="" maxlength="1">
     <button id="btn">Enviar</button>
 
+    <p id="erro"></p>
+
 
     <script>
         var botao = document.getElementById("btn")
@@ -44,6 +50,9 @@
         botao.addEventListener("click", function(){
             var form = document.getElementById("letra")
             var letra = form.value
+            var erro = document.getElementById("erro")
+            var errou = erro.innerHTML
+            erro.innerHTML = ""
             
             if(document.getElementsByClassName(letra).length){
                 
@@ -51,6 +60,11 @@
                 for(var index = 0;index <= elemento.length;index++){
                     elemento[index].innerHTML = letra
                 }
+            }else{
+                var erro = document.getElementById("erro")
+                var errou = erro.innerHTML
+
+                erro.innerHTML = "Você errou, tente novamente"
             }
             
         })
