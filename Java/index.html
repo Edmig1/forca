@@ -6,15 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .palavras{
+        display: flex;
+        gap: 5px;
+    }
+    .palavras p{
+        width: 50px;
+        height: 50px;
+        border-bottom: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        font-size: x-large;
+        text-transform: uppercase;
+    }
+</style>
 <body>
-    <p class="p"></p>
-    <p class="a"></p>
-    <p class="l"></p>
-    <p class="a"></p>
-    <p class="v"></p>
-    <p class="r"></p>
-    <p class="a"></p>
-
+    <div class="palavras">
+        <p class="p"></p>
+        <p class="a"></p>
+        <p class="l"></p>
+        <p class="a"></p>
+        <p class="v"></p>
+        <p class="r"></p>
+        <p class="a"></p>
+    </div>
 
     <label for="letra-label">Insira a letra: </label>
     <input type="text" name="" id="letra" value="" maxlength="1">
@@ -27,9 +44,18 @@
         botao.addEventListener("click", function(){
             var form = document.getElementById("letra")
             var letra = form.value
-
+            
+            if(document.getElementsByClassName(letra).length){
+                
+                var elemento = document.getElementsByClassName(letra)
+                for(var index = 0;index <= elemento.length;index++){
+                    elemento[index].innerHTML = letra
+                }
+            }
             
         })
+
+        
     </script>
 </body>
 </html>
