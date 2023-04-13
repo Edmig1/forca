@@ -4,69 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/style.css">
     <title>Document</title>
 </head>
-<style>
-    .palavras{
-        display: flex;
-        gap: 5px;
-    }
-    .palavras p{
-        width: 50px;
-        height: 50px;
-        border-bottom: 2px solid black;
-        display: flex;
-        justify-content: center;
-        align-items: end;
-        font-size: x-large;
-        text-transform: uppercase;
-    }
-
-    #erro{
-        color: red;
-    }
-</style>
 <body>
-    <div class="palavras">
-        <p class="p"></p>
-        <p class="a"></p>
-        <p class="l"></p>
-        <p class="a"></p>
-        <p class="v"></p>
-        <p class="r"></p>
-        <p class="a"></p>
-    </div>
-
-    <label for="letra-label">Insira a letra: </label>
-    <input type="text" name="" id="letra" value="" maxlength="1">
-    <button id="btn">Enviar</button>
-
-    <p id="erro"></p>
 
     <div id="imagens">
         <img src="" alt="" id="force">
     </div>
 
+    <div class="pal">
+        <div class="pal-pal">
+            <div class="palavras">
+                <p class="p"></p>
+                <p class="a"></p>
+                <p class="l"></p>
+                <p class="a"></p>
+                <p class="v"></p>
+                <p class="r"></p>
+                <p class="a"></p>
+            </div>
+            <div>
+                <label for="letra-label">Insira a letra: </label>
+                <input type="text" name="" id="letra" value="" maxlength="1">
+                <button id="btn">Enviar</button>
+            </div> 
 
+            <div>
+                <p id="erro"></p>
+            </div>
+        </div>
+    </div>
     <script>
         var cont = 0
-        var fim = false
+        var fim = "on"
         var botao = document.getElementById("btn") 
         
             botao.addEventListener("click", function(){
-                if (fim === false){
+                if (fim === "on"){
                     var form = document.getElementById("letra")
                     var letra = form.value
                     var erro = document.getElementById("erro")
                     var errou = erro.innerHTML
                     erro.innerHTML = ""
+
+
     
                     if(document.getElementsByClassName(letra).length){
-                        
                         var elemento = document.getElementsByClassName(letra)
                         for(var index = 0;index <= elemento.length;index++){
                             elemento[index].innerHTML = letra
-                        }
+                        }  
                     }else{
                         var erro = document.getElementById("erro")
                         var errou = erro.innerHTML
@@ -77,55 +68,54 @@
                         switch (cont) {
 
                             case 1: 
-                            img.src = "../img/forcaSemCabeca.png";
-                            img.style.width = "300px";
+                            img.src = "../img/1.png";
+                            img.style.border = "2px solid var(--cor-border)"
                             document.getElementById('imagens').appendChild(img);
                             break
 
                             case 2:
-                            img.src = "../img/forcaSemCorpo.png";
-                            img.style.width = "300px";
+                            img.src = "../img/2.png";
                             document.getElementById('imagens').appendChild(img);
                             break
 
                             case 3:
-                            img.src = "../img/forcaSem1perna.png";
-                            img.style.width = "300px";
+                            img.src = "../img/3.png";
                             document.getElementById('imagens').appendChild(img);
                             break
 
                             case 4: 
-                            img.src = "../img/forcaSemPerna.png";
-                            img.style.width = "300px";
+                            img.src = "../img/4.png";
                             document.getElementById('imagens').appendChild(img);
                             break
 
                             case 5:
-                            img.src = "../img/forcaSemBraco.png";
-                            img.style.width = "300px";
+                            img.src = "../img/5.png";
                             document.getElementById('imagens').appendChild(img);
                             break
 
                             case 6: 
-                            img.src = "../img/forcaSem1braco.png";
-                            img.style.width = "300px";
+                            img.src = "../img/6.png";
                             document.getElementById('imagens').appendChild(img);
                             break
 
                             case 7:
-                            img.src = "../img/forcaCompleta.png";
-                            img.style.width = "300px";
+                            img.src = "../img/7.png";
                             document.getElementById('imagens').appendChild(img);
-                            fim = true
+                            fim = "off"
                             break
                         }
                     }
                 }
-                else {
-                var erro = document.getElementById("erro")
-                var errou = erro.innerHTML
-                erro.innerHTML = "suas tentativas acabaram foi mal"
-                } 
+                else if (fim === "off") {
+                    var erro = document.getElementById("erro")
+                    var errou = erro.innerHTML
+                    erro.innerHTML = "suas tentativas acabaram foi mal"
+                }
+                else if (fim === "win") {
+                    var erro = document.getElementById("erro")
+                    var errou = erro.innerHTML
+                    erro.innerHTML = "parabéns você venceu!" 
+                }    
             })   
         
     </script>
