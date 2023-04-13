@@ -43,86 +43,90 @@
 
     <p id="erro"></p>
 
-    <div id="imagens"></div>
+    <div id="imagens">
+        <img src="" alt="" id="force">
+    </div>
 
 
     <script>
         var cont = 0
+        var fim = false
         var botao = document.getElementById("btn") 
         
-         if (cont < 7){
             botao.addEventListener("click", function(){
-                var form = document.getElementById("letra")
-                var letra = form.value
-                var erro = document.getElementById("erro")
-                var errou = erro.innerHTML
-                erro.innerHTML = ""
-  
-                if(document.getElementsByClassName(letra).length){
-                    
-                    var elemento = document.getElementsByClassName(letra)
-                    for(var index = 0;index <= elemento.length;index++){
-                        elemento[index].innerHTML = letra
-                    }
-                }else{
+                if (fim === false){
+                    var form = document.getElementById("letra")
+                    var letra = form.value
                     var erro = document.getElementById("erro")
                     var errou = erro.innerHTML
+                    erro.innerHTML = ""
+    
+                    if(document.getElementsByClassName(letra).length){
+                        
+                        var elemento = document.getElementsByClassName(letra)
+                        for(var index = 0;index <= elemento.length;index++){
+                            elemento[index].innerHTML = letra
+                        }
+                    }else{
+                        var erro = document.getElementById("erro")
+                        var errou = erro.innerHTML
+                        var img = document.getElementById("force")
 
-                    erro.innerHTML = "Você errou, tente novamente"
-                    cont = cont + 1
-                    switch (cont) {
+                        erro.innerHTML = "Você errou, tente novamente"
+                        cont = cont + 1
+                        switch (cont) {
 
-                        case 1: var img = document.createElement("IMG");
-                        img.src = "../img/forcaSemCabeca.png";
-                        img.style.width = "300px";
-                        document.getElementById('imagens').appendChild(img);
-                        break
+                            case 1: 
+                            img.src = "../img/forcaSemCabeca.png";
+                            img.style.width = "300px";
+                            document.getElementById('imagens').appendChild(img);
+                            break
 
-                        case 2: var img = document.createElement("IMG");
-                        img.src = "../img/forcaSemCorpo.png";
-                        img.style.width = "300px";
-                        document.getElementById('imagens').appendChild(img);
-                        break
+                            case 2:
+                            img.src = "../img/forcaSemCorpo.png";
+                            img.style.width = "300px";
+                            document.getElementById('imagens').appendChild(img);
+                            break
 
-                        case 3: var img = document.createElement("IMG");
-                        img.src = "../img/forcaSem1perna.png";
-                        img.style.width = "300px";
-                        document.getElementById('imagens').appendChild(img);
-                        break
+                            case 3:
+                            img.src = "../img/forcaSem1perna.png";
+                            img.style.width = "300px";
+                            document.getElementById('imagens').appendChild(img);
+                            break
 
-                        case 4: var img = document.createElement("IMG");
-                        img.src = "../img/forcaSemPerna.png";
-                        img.style.width = "300px";
-                        document.getElementById('imagens').appendChild(img);
-                        break
+                            case 4: 
+                            img.src = "../img/forcaSemPerna.png";
+                            img.style.width = "300px";
+                            document.getElementById('imagens').appendChild(img);
+                            break
 
-                        case 5: var img = document.createElement("IMG");
-                        img.src = "../img/forcaSemBraco.png";
-                        img.style.width = "300px";
-                        document.getElementById('imagens').appendChild(img);
-                        break
+                            case 5:
+                            img.src = "../img/forcaSemBraco.png";
+                            img.style.width = "300px";
+                            document.getElementById('imagens').appendChild(img);
+                            break
 
-                        case 6: var img = document.createElement("IMG");
-                        img.src = "../img/forcaSem1braco.png";
-                        img.style.width = "300px";
-                        document.getElementById('imagens').appendChild(img);
-                        break
+                            case 6: 
+                            img.src = "../img/forcaSem1braco.png";
+                            img.style.width = "300px";
+                            document.getElementById('imagens').appendChild(img);
+                            break
 
-                        case 7: var img = document.createElement("IMG");
-                        img.src = "../img/forcaCompleta.png";
-                        img.style.width = "300px";
-                        document.getElementById('imagens').appendChild(img);
-                        break
+                            case 7:
+                            img.src = "../img/forcaCompleta.png";
+                            img.style.width = "300px";
+                            document.getElementById('imagens').appendChild(img);
+                            fim = true
+                            break
+                        }
                     }
                 }
-                
-            })
-        }
-        else {
-            var erro = document.getElementById("erro")
-            var errou = erro.innerHTML
-            erro.innerHTML = "suas tentativas acabaram foi mal"
-        }    
+                else {
+                var erro = document.getElementById("erro")
+                var errou = erro.innerHTML
+                erro.innerHTML = "suas tentativas acabaram foi mal"
+                } 
+            })   
         
     </script>
 </body>
